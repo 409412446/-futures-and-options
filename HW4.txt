@@ -1,0 +1,113 @@
+#1 collar
+
+#long put(95) short call(105)
+N=100000
+S=zeros(n)
+K1=95
+K2=105
+payoff_1=zeros(n)
+payoff_2=zeros(n)
+payoff_3=zeros(n)
+for i = 1:n
+s[i]= i/100
+payoff_1[i] =max(K1-S[i],0)
+payoff_2[i] =max(0,-(S[i]-K2))
+payoff_3[i] =payoff_1[i]+payoff_2[i]
+end
+
+
+Using plots
+scatter(S,payoff_3)
+
+#2 box spreads
+N=100000
+S=zeros(n)
+K1=95
+K2=100
+K3=100
+K4=95
+payoff_1=zeros(n)
+payoff_2=zeros(n)
+payoff_3=zeros(n)
+payoff_4=zeros(n)
+payoff_5=zeros(n)
+for i= 1:n
+s[i]=i/100
+payoff_1[i]=max(S[i]-K1,0)
+
+payoff_2[i]=max(-(S[i]-K2),0)
+payoff_3[i]=max(K3-S[i],0)
+payoff_4[i]=max(-(K4-S[i]),0)
+
+payoff_5[i]=payoff_1[i]+payoff_2[i]+payoff_3[i]+payoff_4[i]
+end
+using plots
+scatter(S,payoff_5) 
+
+#3 ratio spreads
+
+N=100000
+S=zeros(n)
+K1=95
+K2=100
+
+payoff_1=zeros(n)
+payoff_2=zeros(n)
+payoff_3=zeros(n)
+
+
+for i= 1:n
+s[i]=i/100
+payoff_1[i] =max(-2(K1-S[i]) ,0 )
+payoff_2[i] =max(S[i]- K2,0)
+payoff_3[i] =payoff_1[i]+payoff_2[i]
+end
+using plots
+scatter(S,payoff_3)
+
+
+#4 condor
+
+N=100000
+S=zeros(n)
+K1=95
+K2=100
+K3=105
+payoff_1=zeros(n)
+payoff_2=zeros(n)
+payoff_3=zeros(n)
+payoff_4=zeros(n)
+payoff_5=zeros(n)
+for i= 1:n
+s[i]=i/100
+
+payoff_1[i]=max(S[i]-K1,0)
+
+payoff_2[i]=max(-(S[i]-K2),0)
+payoff_3[i]=max(-(K2-S[i]),0)
+payoff_4[i]=max(K4-S[i],0)
+
+payoff_5[i]=payoff_1[i]+payoff_2[i] +payoff_3[i]+payoff_4[i]
+
+end
+ 
+using plots
+scatter(S,payoff_5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
