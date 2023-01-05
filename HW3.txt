@@ -1,6 +1,6 @@
 using HTTP, CSV, DataFrames
-data= 
-"crude-oil-wti-prices-intraday-01-04-2023.csv"
+data_url= 
+"https://github.com/409412446/-futures-and-options/blob/e49c42bc15a0f927498312389e3f6a1348cd0efb/Crude%20Oil%20WTI%20spot%20future%20price%20-%20%E5%B7%A5%E4%BD%9C%E8%A1%A81.csv"
 
 my_file = CSV.File(HTTP.get(data_url).body)
 
